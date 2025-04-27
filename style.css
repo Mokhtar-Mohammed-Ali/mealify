@@ -52,9 +52,7 @@ body:has(#mode-front:checked) .mode i{
 }
 
 
-body:has(#mode-front:checked) ul li:hover a {
-  
-}
+
 .global-heading {
   width: 100%;
   text-align: center;
@@ -203,10 +201,12 @@ nav .container .mode input:checked body {
 .hreo-wrapper .hero-text .hero-heading {
   font-size: 4.625rem;
   font-family: var(--headingFont);
+  width: 100%;
 }
 .hreo-wrapper .hero-text p {
   font-family: var(--textFonts);
   color: var(--secondaryColor);
+  width: 70%;
 }
 .hero-text .hero-buttons {
   display: flex;
@@ -266,7 +266,7 @@ padding: 10px;
   position: absolute;
   top: 5px;
   left: 7px;
-  color: var(--black);
+  color: #000;
  
  
 }
@@ -396,57 +396,61 @@ fill: var(--whiteColor);
 }
 /* gallary */
 .gallary {
-  width: 100%;
+  
   padding: var(--globa-padding);
   background-color: var(--globalBackgrond);
+  display: grid;
+  grid-template-columns: repeat(3,f1r);
+  grid-template-rows:repeat(3,1fr) 0.5fr;
+  gap: 20px 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "pizza beef burger"
+    "pices beef crispy"
+    "pices fertita kebab"
+    ". fertita kebab"
+    ". fertita .";
+    height: 150vh;
+    width: 90%;
+    margin: auto;
 }
 
-.gallary .gallry-images {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 1200px;
-  
-}
-.gallary .gallry-images .cardImage {
+
+.pizza { grid-area: pizza; }
+
+.beef { grid-area: beef; }
+
+.burger { grid-area: burger; }
+
+.crispy { grid-area: crispy; }
+
+.fertita { grid-area: fertita; }
+
+.kebab { grid-area: kebab; }
+
+.pices { grid-area: pices; }
+
+
+.gallary .cardImage {
   position: relative;
- width: 30%;
- margin-bottom: 30px;
+
+
  overflow: hidden;
  
 }
-/* order card meal */
-.order-1{
-  order:1;
-}
-.order-2{
-  order:2;
-}
-.order-3{
-  order:3;
-}
-.order-4{
-  order:4;
-}
-.order-5{
-  order:5;
-}
-.order-6{
-  order:6;
-}
-.order-7{
-  order:7;
-}
 
-.gallary .gallry-images .cardImage img {
+
+.gallary .cardImage img {
   width: 100%;
-  display: block;
+  height: 100%;
  
+  object-fit: cover;
+
   transition: transform 0.3s ease;
 }
-.gallary .gallry-images .cardImage .layer {
+.gallary .cardImage .layer {
   position: absolute;
-  top: 110%;
+  top: 100%;
   bottom: 0;
   right: 0;
   left: 0;
@@ -461,22 +465,22 @@ fill: var(--whiteColor);
   visibility: hidden;
   transition: all 0.3s linear;
 }
-.gallary .gallry-images .cardImage:hover .layer {
+.gallary .cardImage:hover .layer {
   visibility: visible;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
 }
-.gallary .gallry-images .cardImage:hover img {
+.gallary .cardImage:hover img {
   transform: scale(1.1);
 }
-.gallary .gallry-images .cardImage .layer span {
+.gallary .cardImage .layer span {
   font-size: 1.5rem;
   font-family: var(--scondary-heading-fonts);
   color: var(--black);
 }
-.gallary .gallry-images .cardImage .layer p {
+.gallary .cardImage .layer p {
   font-family: var(--textFonts);
   color: #ddd;
 }
